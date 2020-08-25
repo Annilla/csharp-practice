@@ -7,6 +7,7 @@ namespace Sec4Ex2
     {
         static void Main(string[] args)
         {
+            // ArrayList Version
             ArrayList student = new ArrayList();
             ArrayList score = new ArrayList();
             ArrayList sortScore = new ArrayList();
@@ -33,17 +34,15 @@ namespace Sec4Ex2
             sortScore.Sort(); 
 
             for(int i = 0; i < score.Count ; i++) {
-                int num = int.Parse(score[i]);
-                total = total + num;
-                if(sortScore[0] == score[i]) {
-                    Console.WriteLine("Highest grade is {0} {1}.", student[i], sortScore[0]);
+                if(Convert.ToInt32(sortScore[score.Count-1]) == Convert.ToInt32(score[i])) {
+                    Console.WriteLine("Highest grade is {0} {1}.", student[i], sortScore[score.Count-1]);
                 }
+                total = total + Convert.ToInt32(score[i]);
             }
 
             average = total / (score.Count);
 
             Console.WriteLine("Average grade is {0}.", average);
-            
         }
     }
 }
